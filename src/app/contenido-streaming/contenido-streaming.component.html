@@ -1,0 +1,53 @@
+<div class="container">
+  <h2 class="text-center">Elegir que ver</h2>
+
+  <div *ngIf="contenidoAMostrar === 'Peliculas-18'">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let pelicula of peliculasF">
+          <div class="card">
+            <img [src]="pelicula.posterURL" class="card-img-top" alt="{{ pelicula.titulo }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ pelicula.titulo }}</h5>
+              <p class="card-text">Año: {{ pelicula.year }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="contenidoAMostrar === 'Peliculas+18'">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let pelicula of peliculasH">
+          <div class="card">
+            <img [src]="pelicula.posterURL" class="card-img-top" alt="{{ pelicula.titulo }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ pelicula.titulo }}</h5>
+              <p class="card-text">Año: {{ pelicula.year }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="contenidoAMostrar === 'Series'">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let serie of series">
+          <div class="card">
+            <img [src]="serie.posterURL" class="card-img-top" alt="{{ serie.titulo }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ serie.titulo }}</h5>
+              <p class="card-text">Año: {{ serie.year }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <a type="button" class="btn btn-danger btn-sm float-right" (click)="printPH()">Log pelis horror</a>
+<a type="button" class="btn btn-danger btn-sm float-right" (click)="printPF()">Log pelis family</a> -->

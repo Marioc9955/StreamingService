@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+      
+      <li *ngIf="componentActive == 'Perfiles'" class="nav-item">
+        <a routerLink="planes" routerLinkActive="active" class="nav-link" >Cambiar plan</a>
+      </li>
+      <li *ngIf="componentActive == 'Peliculas-18' || componentActive == 'Peliculas+18'" class="nav-item">
+        <a class="nav-link" (click)="mostrarContenido('Peliculas-18')">Peliculas familiares</a>
+      </li>
+      <li *ngIf="componentActive == 'Peliculas+18'" class="nav-item">
+        <a class="nav-link" (click)="mostrarContenido('Peliculas+18')">Peliculas de horror</a>
+      </li>
+      <!-- <li *ngIf="isPlanAv" class="nav-item">
+        <a class="nav-link" (click)="mostrarContenido('Series')">Series Cartoon</a>
+      </li> -->
+      <li *ngIf="adminLogged" class="nav-item">
+        <a class="nav-link" (click)="aBoardAdmin('Usuarios')">Administrar usuarios</a>
+      </li>
+      <li *ngIf="adminLogged" class="nav-item">
+        <a class="nav-link" (click)="aBoardAdmin('Peliculas')">Administrar peliculas</a>
+      </li>
+      <!-- <li *ngIf="adminLogged" class="nav-item">
+        <a class="nav-link" (click)="aBoardAdmin('Series')">Administrar series</a>
+      </li> -->
+      <li *ngIf="adminLogged" class="nav-item">
+        <a routerLink="productos" routerLinkActive="active" class="nav-link">Productos</a>
+      </li>
+    </ul>
+  </nav>

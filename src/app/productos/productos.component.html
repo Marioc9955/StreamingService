@@ -1,0 +1,21 @@
+<button class="btn btn-success" (click)="crearProducto()">Crear Producto</button>
+<h2>Lista de productos</h2>
+<div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let producto of productos">
+        <div class="card">
+          <img class="card-img-top" [src]="producto.imagen" alt="Imagen del producto">
+          <div class="card-body">
+            <h5 class="card-title">{{producto.nombre}}</h5>
+            <p class="card-text">Cantidad: {{producto.cantidad}}</p>
+            <p class="card-text">Precio: {{producto.precio}}</p>
+            <p class="card-text">Estado: {{producto.estado}}</p>
+            <button class="btn btn-primary" (click)="editarProducto(producto.id)">Editar</button>
+            <button class="btn btn-secondary" (click)="verModelo3D(producto.id)">Ver modelo 3D</button>
+            <button class="btn btn-danger" (click)="eliminarProducto(producto.id)">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

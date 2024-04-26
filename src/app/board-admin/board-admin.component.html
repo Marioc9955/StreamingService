@@ -1,0 +1,69 @@
+<div class="container">
+  <h2 class="text-center">Elegir que ver</h2>
+
+  <div *ngIf="contenidoAMostrar === 'Peliculas'">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let pelicula of peliculas">
+          <div class="card">
+            <img [src]="pelicula.posterURL" class="card-img-top" alt="{{ pelicula.titulo }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ pelicula.titulo }}</h5>
+              <p class="card-text">Año: {{ pelicula.year }}</p>
+              <button class="btn btn-primary" (click)="editarPelicula(pelicula)">Editar</button>
+              <button class="btn btn-danger" (click)="eliminarPelicula(pelicula)">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="contenidoAMostrar === 'Series'">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let serie of series">
+        <div class="card">
+          <img [src]="serie.posterURL" class="card-img-top" alt="{{ serie.titulo }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ serie.titulo }}</h5>
+            <p class="card-text">Año: {{ serie.year }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="contenidoAMostrar === 'Usuarios'" class="user-list">
+  <h2>Lista de Usuarios</h2>
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Email</th>
+        <th>Estado</th>
+        <th>Fecha de Registro</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usuarios">
+        <td>dsfc{{ user.id }}</td>
+        <td>{{ user.nombre }}</td>
+        <td>{{ user.edad }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.estado }}</td>
+        <td>{{ user.fechaRegistro | date:'short' }}</td>
+        <td>
+          <button (click)="editarUsuario(user)" class="btn btn-info">Editar</button>
+          <button (click)="eliminarUsuario(user.id)" class="btn btn-danger">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- <a type="button" class="btn btn-danger btn-sm float-right" (click)="printUsuarios()">Log users</a> -->

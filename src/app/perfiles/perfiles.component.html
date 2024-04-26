@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" (click)="aPlanes()">Cambiar plan </a>
+    </li>
+  </ul>
+</nav>
+
+<div>
+  <h2>Perfiles</h2>
+
+  <!-- Muestra los perfiles existentes como botones -->
+  <div *ngFor="let perfil of mapaPerfiles.entries()">
+    <button type="button" class="btn btn-primary btn-lg" (click)="aContenido()">{{ perfil[1] }}</button>
+    <button type="button" class="btn btn-danger btn-sm" (click)="eliminarPerfil(perfil[0])">Eliminar</button>
+  </div>
+
+  <!-- Botón para agregar un nuevo perfil (se desactiva si se alcanza el máximo) -->
+  <button type="button" class="btn btn-secondary btn-lg" [disabled]="mapaPerfiles.size >= maxPerfiles"
+    (click)="abrirCuadroDeTexto()">
+    Agregar perfil
+  </button>
+
+  <button type="button" class="btn btn-secondary btn-lg"
+    (click)="pagarMes()">
+    Pagar mensualidad
+  </button>
+  
+</div>
